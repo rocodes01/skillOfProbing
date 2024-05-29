@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill of Probing</title>
+    <style>
+        body {
+            font-family: 'Helvetica', arial;
+        }
+
+        .btn {
+            background: #428bca;
+            border: #357ebd solid 1px;
+            border-radius: 3px;
+            color: #fff;
+            display: inline-block;
+            font-size: 14px;
+            padding: 8px 15px;
+            text-decoration: none;
+            text-align: center;
+            min-width: 60px;
+            position: relative;
+            transition: color .1s ease;
+        }
+
+        .btn:hover {
+            background: #357ebd;
+        }
+
+        .btn-close {
+            color: #aaaaaa;
+            font-size: 30px;
+            text-decoration: none;
+        }
+
+        .btn-close:hover {
+            color: #919191;
+        }
+
+        .modal:before {
+            content: "";
+            display: none;
+            background: rgba(0, 0, 0, 0.6);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 10;
+        }
+
+        .modal:target:before {
+            display: block;
+        }
+
+        .modal:target .modal-dialog {
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+        }
+
+        .modal-dialog {
+            background: #fefefe;
+            border: #333333 solid 1px;
+            border-radius: 5px;
+            position: fixed;
+            left: 50%;
+            top: 0;
+            z-index: 11;
+            width: 100vw;
+            height: 100vh;
+            transform: translate(0, -500%);
+            transition: transform 0.3s ease-out;
+        }
+
+        .modal:target .modal-dialog2 {
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+        }
+
+        .modal-dialog2 {
+            background: #fefefe;
+            border: #333333 solid 1px;
+            border-radius: 5px;
+            position: fixed;
+            left: 50%;
+            top: 0;
+            z-index: 11;
+            width: 100vw;
+            height: 100vh;
+            transform: translate(0, -500%);
+            transition: transform 0.3s ease-out;
+        }
+
+        .modal:target .modal-dialog3 {
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+        }
+
+        .modal-dialog3 {
+            background: #fefefe;
+            border: #333333 solid 1px;
+            border-radius: 5px;
+            position: fixed;
+            left: 50%;
+            top: 0;
+            z-index: 11;
+            width: 100vw;
+            height: 100vh;
+            transform: translate(0, -500%);
+            transition: transform 0.3s ease-out;
+        }
+
+        .modal-body {
+            padding: 20px;
+            height: calc(100vh - 100px);
+            ;
+        }
+
+        .modal-header {
+            padding: 5px 20px;
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: #eeeeee solid 1px;
+        }
+
+        .modal-header h2 {
+            font-size: 20px;
+        }
+
+        .btn-big {
+            font-size: 18px;
+            padding-inline: 30px;
+        }
+
+
+        /*ADDED TO STOP SCROLLING TO TOP*/
+        #close {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="">
+        <iframe
+            src="https://docs.google.com/document/d/e/2PACX-1vS9Hv1GfrQrBFzTXGh0rGKptYAhrCQhoPT6Mil_o65e-Rs1F9i60J7yJbnaz-v0gQ-5lLUVdqv8AVwJ/pub?embedded=true"
+            width="100%" style="min-height: 100vh;"></iframe>
+    </div>
+
+
+    <!-- links -->
+    <div class="" style="display: flex;flex-wrap: wrap; gap: 10px;">
+        <a href="#modal-one" class="btn btn-big" onclick="handleAddVideo()">Open
+            Video</a>
+        <a href="#modal-two" class="btn btn-big">Open PPT</a>
+        <a href="#modal-three" class="btn btn-big">Open PDF</a></div>
+    <!-- video -->
+    <div class="modal" id="modal-one" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h2>Skill of Probing</h2>
+                <a href="#close" class="btn-close" aria-hidden="true" onclick="handleVideoClose()">×</a>
+            </div>
+            <div class="modal-body" id="ids">
+                <!-- <video crossorigin="anonymous"
+                    src="https://drive.google.com/file/d/1NNQScmVbP0aBM5L-DDoqePe0UGGCpS77/preview" width="100%"
+                    controls="0" autoplay></video> -->
+                <iframe src="https://drive.google.com/file/d/1NNQScmVbP0aBM5L-DDoqePe0UGGCpS77/preview" allowfullscreen
+                    width="100%" height="100%" allow="autoplay"></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- PPT -->
+    <div class="modal" id="modal-two" aria-hidden="true">
+        <div class="modal-dialog2">
+            <div class="modal-header">
+                <h2>Skill of Probing</h2>
+                <a href="#close" class="btn-close" aria-hidden="true">×</a>
+            </div>
+            <div class="modal-body">
+                <iframe
+                    src="https://docs.google.com/presentation/d/e/2PACX-1vTfjAAOE_OPMtDMd-U4d-3GVBbOYZxuzxVevhOqKyaCtS7tzXboycCfeDJjSDKDd1F2gmbPwShdCKof/embed?start=false&loop=false&delayms=3000"
+                    frameborder="0" width="100%" height="100%" allowfullscreen="true" mozallowfullscreen="true"
+                    webkitallowfullscreen="true"></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- PDF -->
+    <div class="modal" id="modal-three" aria-hidden="true">
+        <div class="modal-dialog3">
+            <div class="modal-header">
+                <h2>Skill of Probing</h2>
+                <a href="#close" class="btn-close" aria-hidden="true">×</a>
+            </div>
+            <div class="modal-body">
+                <iframe src="https://drive.google.com/file/d/11s89lAXj2wx9qgtFAvi8b_yskbPTIO0s/preview" width="100%"
+                    height="100%" allow="autoplay"></iframe>
+            </div>
+        </div>
+    </div>
+    <script>
+        const handleVideoClose = () => {
+            document.getElementById("ids").innerHTML = null;
+        }
+        const handleAddVideo = () => {
+
+            document.getElementById("ids").innerHTML = `<iframe src="https://drive.google.com/file/d/1NNQScmVbP0aBM5L-DDoqePe0UGGCpS77/preview" allowfullscreen
+                    width="100%" height="100%" allow="autoplay"></iframe>`;
+        }
+    </script>
+</body>
+
+</html>
