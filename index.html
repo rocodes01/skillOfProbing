@@ -201,19 +201,6 @@
         <h1 style="color:#995733;text-align: center; ">Skill of Probing Questions</h1>
         <div id="content"></div>
 
-
-        <div class="" style="display: flex;flex-direction: column;gap:20px;width: calc(100% - 60px);">
-            <h2 style="color:#995733; border-bottom: 1px solid #97B0C8;">Skill of Probing Questions</h2>
-            <iframe src="https://drive.google.com/file/d/1NNQScmVbP0aBM5L-DDoqePe0UGGCpS77/preview" allowfullscreen
-                width="100%" height="100%" style="aspect-ratio: 2/1;" allow="autoplay"></iframe>
-            <iframe
-                src="https://docs.google.com/presentation/d/e/2PACX-1vTfjAAOE_OPMtDMd-U4d-3GVBbOYZxuzxVevhOqKyaCtS7tzXboycCfeDJjSDKDd1F2gmbPwShdCKof/embed?start=false&loop=false&delayms=3000"
-                frameborder="0" width="100%" height="100%" style="aspect-ratio: 1.65/1;" allowfullscreen="true"
-                mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-            <iframe src="https://drive.google.com/file/d/11s89lAXj2wx9qgtFAvi8b_yskbPTIO0s/preview" width="100%"
-                height="100%" allow="autoplay" style="aspect-ratio: 1/1.4;"></iframe>
-        </div>
-
         <!-- links -->
         <div class="modals">
             <div class="" style="display: flex;flex-wrap: wrap; gap: 10px;">
@@ -332,7 +319,7 @@
                     }, {
                         title: 'Probing questions',
                         content: 'It is important to allow and encourage the fellow trainees to ask structured questions and clarify doubts. Redirection, refocusing, and increasing critical awareness are significant components of this skill.',
-
+                        hasAttachments: true,
                     },
                     {
                         title: 'Classroom management',
@@ -430,6 +417,27 @@ Table 1 lists the various key skills and their individual components involved wi
                     microTeachingData.slice(3, 14).forEach((item) => {
                         const subData = renderSubData(item);
                         div.appendChild(subData);
+                        if (item.hasAttachments) {
+                            const attachments = document.createElement('div');
+                            attachments.innerHTML = `<div class="" style="display: flex;flex-direction: column;gap:20px;width: 100%">
+            <iframe src="https://drive.google.com/file/d/1NNQScmVbP0aBM5L-DDoqePe0UGGCpS77/preview" allowfullscreen
+                width="100%" height="100%" style="aspect-ratio: 2/1;" allow="autoplay"></iframe>
+            <div style="position:relative">
+                <iframe
+                src="https://docs.google.com/presentation/d/e/2PACX-1vTfjAAOE_OPMtDMd-U4d-3GVBbOYZxuzxVevhOqKyaCtS7tzXboycCfeDJjSDKDd1F2gmbPwShdCKof/embed?start=false&loop=false&delayms=3000"
+                frameborder="0" width="100%" height="100%" style="aspect-ratio: 1.65/1;" allowfullscreen="true"
+                mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                <a href="https://docs.google.com/presentation/d/e/2PACX-1vTfjAAOE_OPMtDMd-U4d-3GVBbOYZxuzxVevhOqKyaCtS7tzXboycCfeDJjSDKDd1F2gmbPwShdCKof/embed?start=false&loop=false&delayms=3000" target="_blank" style="position:absolute; width:100%;height:100%;z-index:10;top:0;left:0"></a>
+                </div>
+                
+                <div style="position:relative">
+                    <iframe src="https://drive.google.com/file/d/11s89lAXj2wx9qgtFAvi8b_yskbPTIO0s/preview" width="100%"
+                    height="100%" allow="autoplay" style="aspect-ratio: 1/1.4;"></iframe>
+                    <a href="https://drive.google.com/file/d/11s89lAXj2wx9qgtFAvi8b_yskbPTIO0s/preview" target="_blank" style="position:absolute; width:100%;height:100%;z-index:10;top:0;left:0"></a>
+                    </div>
+        </div>`;
+                            div.appendChild(attachments);
+                        }
                     })
 
 
