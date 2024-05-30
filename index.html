@@ -5,9 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skill of Probing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&display=swap" rel="stylesheet">
+
     <style>
         body {
-            font-family: 'Helvetica', arial;
+            font-family: "Cactus Classical Serif", serif;
+        }
+
+        .container {
+            width: calc(min(85vw, 900px));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
         }
 
         .btn {
@@ -146,78 +158,334 @@
         #close {
             display: none;
         }
+
+        #content {
+            padding-inline: 30px;
+            margin-bottom: 30px;
+        }
+
+        #content>div {
+            padding-block: 20px;
+        }
+
+        p {
+            font-family: 'Sans Serif', arial;
+            font-size: 18px;
+        }
+
+        .gotoLink {
+            float: right;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        a {
+            color: #366FAA;
+        }
+
+        .subDataTitle {
+            color: #734126;
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
     </style>
 </head>
 
 <body>
-
-    <div class="">
-        <iframe
-            src="https://docs.google.com/document/d/e/2PACX-1vS9Hv1GfrQrBFzTXGh0rGKptYAhrCQhoPT6Mil_o65e-Rs1F9i60J7yJbnaz-v0gQ-5lLUVdqv8AVwJ/pub?embedded=true"
-            width="100%" style="min-height: 100vh;"></iframe>
-    </div>
-
-
-    <!-- links -->
-    <div class="" style="display: flex;flex-wrap: wrap; gap: 10px;">
-        <a href="#modal-one" class="btn btn-big" onclick="handleAddVideo()">Open
-            Video</a>
-        <a href="#modal-two" class="btn btn-big">Open PPT</a>
-        <a href="#modal-three" class="btn btn-big">Open PDF</a></div>
-    <!-- video -->
-    <div class="modal" id="modal-one" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-header">
-                <h2>Skill of Probing</h2>
-                <a href="#close" class="btn-close" aria-hidden="true" onclick="handleVideoClose()">×</a>
-            </div>
-            <div class="modal-body" id="ids">
-                <!-- <video crossorigin="anonymous"
-                    src="https://drive.google.com/file/d/1NNQScmVbP0aBM5L-DDoqePe0UGGCpS77/preview" width="100%"
-                    controls="0" autoplay></video> -->
-                <iframe src="https://drive.google.com/file/d/1NNQScmVbP0aBM5L-DDoqePe0UGGCpS77/preview" allowfullscreen
-                    width="100%" height="100%" allow="autoplay"></iframe>
-            </div>
-        </div>
-    </div>
-    <!-- PPT -->
-    <div class="modal" id="modal-two" aria-hidden="true">
-        <div class="modal-dialog2">
-            <div class="modal-header">
-                <h2>Skill of Probing</h2>
-                <a href="#close" class="btn-close" aria-hidden="true">×</a>
-            </div>
-            <div class="modal-body">
+    <div class="container">
+        <!-- <div class="">
                 <iframe
-                    src="https://docs.google.com/presentation/d/e/2PACX-1vTfjAAOE_OPMtDMd-U4d-3GVBbOYZxuzxVevhOqKyaCtS7tzXboycCfeDJjSDKDd1F2gmbPwShdCKof/embed?start=false&loop=false&delayms=3000"
-                    frameborder="0" width="100%" height="100%" allowfullscreen="true" mozallowfullscreen="true"
-                    webkitallowfullscreen="true"></iframe>
-            </div>
-        </div>
-    </div>
-    <!-- PDF -->
-    <div class="modal" id="modal-three" aria-hidden="true">
-        <div class="modal-dialog3">
-            <div class="modal-header">
-                <h2>Skill of Probing</h2>
-                <a href="#close" class="btn-close" aria-hidden="true">×</a>
-            </div>
-            <div class="modal-body">
-                <iframe src="https://drive.google.com/file/d/11s89lAXj2wx9qgtFAvi8b_yskbPTIO0s/preview" width="100%"
-                    height="100%" allow="autoplay"></iframe>
-            </div>
-        </div>
-    </div>
-    <script>
-        const handleVideoClose = () => {
-            document.getElementById("ids").innerHTML = null;
-        }
-        const handleAddVideo = () => {
+                    src="https://docs.google.com/document/d/e/2PACX-1vS9Hv1GfrQrBFzTXGh0rGKptYAhrCQhoPT6Mil_o65e-Rs1F9i60J7yJbnaz-v0gQ-5lLUVdqv8AVwJ/pub?embedded=true"
+                    width="100%" style="min-height: 100vh;"></iframe>
+            </div> -->
+        <div id="content"></div>
 
-            document.getElementById("ids").innerHTML = `<iframe src="https://drive.google.com/file/d/1NNQScmVbP0aBM5L-DDoqePe0UGGCpS77/preview" allowfullscreen
-                    width="100%" height="100%" allow="autoplay"></iframe>`;
-        }
-    </script>
+
+        <!-- links -->
+        <div class="modals">
+            <div class="" style="display: flex;flex-wrap: wrap; gap: 10px;">
+                <a href="#modal-one" class="btn btn-big" onclick="handleAddVideo()">Open
+                    Video</a>
+                <a href="#modal-two" class="btn btn-big">Open PPT</a>
+                <a href="#modal-three" class="btn btn-big">Open PDF</a></div>
+            <!-- video -->
+            <div class="modal" id="modal-one" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-header">
+                        <h2>Skill of Probing</h2>
+                        <a href="#close" class="btn-close" aria-hidden="true" onclick="handleVideoClose()">×</a>
+                    </div>
+                    <div class="modal-body" id="ids">
+                        <!-- <video crossorigin="anonymous"
+                                src="https://drive.google.com/file/d/1NNQScmVbP0aBM5L-DDoqePe0UGGCpS77/preview" width="100%"
+                                controls="0" autoplay></video> -->
+                        <iframe src="https://drive.google.com/file/d/1NNQScmVbP0aBM5L-DDoqePe0UGGCpS77/preview"
+                            allowfullscreen width="100%" height="100%" allow="autoplay"></iframe>
+                    </div>
+                </div>
+            </div>
+            <!-- PPT -->
+            <div class="modal" id="modal-two" aria-hidden="true">
+                <div class="modal-dialog2">
+                    <div class="modal-header">
+                        <h2>Skill of Probing</h2>
+                        <a href="#close" class="btn-close" aria-hidden="true">×</a>
+                    </div>
+                    <div class="modal-body">
+                        <iframe
+                            src="https://docs.google.com/presentation/d/e/2PACX-1vTfjAAOE_OPMtDMd-U4d-3GVBbOYZxuzxVevhOqKyaCtS7tzXboycCfeDJjSDKDd1F2gmbPwShdCKof/embed?start=false&loop=false&delayms=3000"
+                            frameborder="0" width="100%" height="100%" allowfullscreen="true" mozallowfullscreen="true"
+                            webkitallowfullscreen="true"></iframe>
+                    </div>
+                </div>
+            </div>
+            <!-- PDF -->
+            <div class="modal" id="modal-three" aria-hidden="true">
+                <div class="modal-dialog3">
+                    <div class="modal-header">
+                        <h2>Skill of Probing</h2>
+                        <a href="#close" class="btn-close" aria-hidden="true">×</a>
+                    </div>
+                    <div class="modal-body">
+                        <iframe src="https://drive.google.com/file/d/11s89lAXj2wx9qgtFAvi8b_yskbPTIO0s/preview"
+                            width="100%" height="100%" allow="autoplay"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const mainData = [{
+                    title: 'IMPACT OF MICROTEACHING',
+                    subData: [{
+                        title: 'Merits and demerits',
+                        content: `Microteaching has a pivotal role in all medical education training programs and contributes to a great extent to the better understanding of teaching process and its complexities. A case study on microteaching lesson study combining the elements of Japanese lesson study and microteaching technique reported that the pre-and post-lesson plans had successfully demonstrated growth in teachers’ knowledge on teaching.[34] The “teach, critique, re-teach” model in a dental education program identified microteaching as a technique for personality development and confidence-building of health professionals.[35] Heyroth describes microteaching as a “scaled-down teaching encounter designed to develop new skills and refine old ones.”[36] In spite of experiencing anxiety, microteaching has evolved as the proven technique in nurse education.[37] Apart from increasing the teaching performances of 57 nursing students, the microteaching had proven to be effective in the retention of the learned behaviors, even 6 months after course completion.[38] Dietetic students had reportedly high confidence levels after an intensive workshop based on microteaching technique.[39] Another study determined the impact of a microteaching experience on development of performance-based skills at a pharmacy college. A microteaching activity incorporated within a professional development seminar series was proved to be an effective method to enhance and develop communication, problem-solving, and critical-thinking skills in pharmacy students.[40] Microteaching helps not only in developing skills of the novice teachers but also assists in comparing the effectiveness of variation of one microteaching with another.[41] Microteaching has the ability to enhance the skills of problem solving, critical thinking, questioning, and reflective thinking. It improves learning by realistic applications.[42] The other key benefits of this technique included the following: Transformation of difficult topics into learnable units, usage of advanced organizers, integration of the lecture with applications on topics, and usage of proper questions and pauses.[43] The role of health educators can thus be effectively satisfied by practicing microteaching techniques.
+                    Not just in medicine or health sciences, the microteaching concept had worked more efficiently in teaching mathematics than the traditional teaching techniques.[44] The utilization of expanded microteaching activities in a mathematics teaching practical course significantly reduced the levels of anxiety.[45] Behaviorist phenomenon of microteaching through a Neo-Vygotskian theoretical lens, employing a case study of two groups of prospective teachers being coached by a professor and clinical instructor was shown by Vare Jonatha.[46] The new microteaching model conceptualizes the teacher education program with the advances in social learning theory and meta-cognitive learning strategies.[47] An exploratory study by Hansford examined the relationship between various conditions of feedback in peer microteaching, the personality dimension dogmatism, and non-verbal perceptiveness.[48]
+                    Proper practice is deemed essential for teacher training programs, as it serves trainees to gain their first teaching experience and helps to develop the knowledge, skills, and attitudes.[49] But, time remains the major hurdle for microteaching sessions in a medical education training programs. These results in neither all the skills are practiced nor are all trainees given an opportunity for re-planning and re-teaching activities. The training becomes ineffective unless the teacher acquires the quality of effective student teaching.
+                    The other limitations of microteaching include the following: No emphasis on contents, skill dependency, and administrative/logistic problems when the class size is large. This can be minimized by implementing the activities at the departmental level in several sequences. Extensive training programs are possible when the teachers are well equipped with core skills. These programs can then be effectively utilized for learning of new skills and strengthening and elaboration of existing skills. Hence, a better understanding of the complexities of the teaching process by the faculty is more important.
+                    In India, microteaching technique is under-estimated and under-utilized for various reasons. Practicing the economical, simpler methods of microteaching would help develop better teachers for the country.[50]
+                    `,
+                        link: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3724377/',
+                    }]
+                },
+                {
+                    title: 'CONCLUSION',
+                    content: 'Microteaching works as a focused instrument which helps to practice essential teaching skills safely and effectively at any age. This paper describes microteaching as an Efficient Learning Technique for Effective Teaching. Learning is a change in behavior, which is brought about by activity, training, or experiencing at any age. When the learner is more experienced, learning becomes more effective. The most important quality of the participants of microteaching sessions is the ability to give and receive constructive feedback with an open mind and achieves appropriate teaching-learning goals. In addition, it increases self-confidence of teacher in an atmosphere of friendliness and equanimity.',
+                    link: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3724377/'
+                }
+
+            ];
+
+            const microTeachingData = [{
+                    title: 'Definition and basic concepts',
+                    content: 'Micro Teaching is a teacher training technique for learning teaching skills. It employs real teaching situations for developing skills and helps to get deeper knowledge regarding the art of teaching. This Stanford technique involved the steps of “plan, teach, observe, re-plan, re-teach and re-observe” and has evolved as the core component in 91% of on-campus clinical teaching development programs, with the significant reduction in the teaching complexities with respect to number of students in a class, scope of content, and timeframe, etc.[3,4,5,6,7,8] Most of the pre-service teacher education programs widely use microteaching, and it is a proven method to attain gross improvement in the instructional experiences.[9] Effective student teaching should be the prime quality of a teacher. As an innovative method of equipping teachers to be effective, skills and practices of microteaching have been implemented.[10]'
+                },
+                {
+                    title: 'Efficient technique and effective teaching',
+                    content: 'Microteaching can be practiced with a very small lesson or a single concept and a less number of students. It scales down the complexities of real teaching, as immediate feedback can be sought after each practice session.[11,12,13] The modern-day multimedia equipment such as audio–video recording devices have a key role in the learning process.[14] Observing a fellow teacher and using trial-and-error in own teaching sessions are very common way of self-training. But, both of them have their own demerits. On the other hand, microteaching helps in eliminating errors and builds stronger teaching skills for the beginners and senior teachers.[15,16,17] Microteaching increases the self-confidence, improves the in-class teaching performances, and develops the classroom management skills.[18,19]',
+                    link: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3724377/',
+                },
+                {
+                    title: 'Steps and requirements of microteaching',
+                    content: 'Knowledge acquisition, skill acquisition, and transfer are the three different phases of microteaching.[23] Figure 1 describes the various phases of microteaching. Knowledge acquisition phase is the preparatory, pre-active phase, in which the teacher gets trained on the skills and components of teaching through lectures, discussion, illustration, and demonstration of the skill by the experts. In the interactive, skill acquisition phase, the teacher plans a micro-lesson for practicing the demonstrated skills. The colleagues and peers can act as constructive evaluators which also enable them to modify their own teaching-earning practices.[24] The teacher can reinforce behaviors and skills that are necessary and extinguish that are not needed. Ultimately, they can integrate and transfer this learned skills from simulated teaching situation to real class room teaching.[25] Figure 2 lists the 10 key steps of a microteaching activity.'
+                }, {
+                    content: `After understanding the concepts and components of each core teaching skill, the participant should prepare a micro-lesson for each core teaching skill, and implement one skill in each microteaching session in a sequential manner. The setting can be done in the department itself with minimal facilities on a weekly or monthly basis. Adequate and appropriate constructive feedback for each skill can encourage re-teaching and re-implementing of the skill. The feedback data can be reused, and all the core teaching skills can be integrated in a macro lesson and ultimately to a real classroom teaching or medical education programs.[26,27] The entire faculty play dual role of trainee and constructive evaluators. This also improves the evaluating skills of teacher. Though there are possible chances of not providing proper feedback during the initial sessions, the skilled ability to evaluate and provide constructive feedback increases when there is an increase in the number of sessions.[28]`
+                },
+                {
+                    title: 'Core skills applicable in clinical teaching',
+                    content: 'The core techniques involved with microteaching are based on the fact that teaching can be analyzed and estimated using various simple teaching tasks/skills, which are a set of behavior or acts of the teacher that facilitates learning (directly or indirectly). During the origin of microteaching, almost 20 teaching skills have been identified. But, it has now increased up to 37 or even more. Listed below are some of the important teaching skills.[29]',
+                },
+                {
+                    title: 'Lesson planning',
+                    content: 'It involves the preparation of a micro-lesson which should be organized in a logical sequence. The content should be concise, appropriate, relevant, and could cover the specified duration.',
+                },
+                {
+                    title: 'Presentation and explanation',
+                    content: 'This involves the skills required to explain with clarity and proper understanding of the concepts. The components include teacher enthusiasm, creating readiness by a beginning statement or topic sentence, effective explanation, planned repetition, and concluding statements or key messages with summary of explanation.',
+
+                },
+                {
+                    title: 'Illustrating with examples',
+                    content: 'The teacher trainee should be able to rightly explain the concept by simple, relevant, and interesting examples to increase learners’ understanding.',
+
+                },
+                {
+                    title: 'Reinforcement',
+                    content: 'This skill is meant for increasing the participation of the learners in the development of teaching process. Use of positive verbal and non-verbal cues would be key component for this skill.',
+                }, {
+                    title: 'Stimulus variation',
+                    content: 'Securing and sustaining the attention of the learner is imperative for a good teacher. The effective components of the skill are gestures, change in speech pattern, and change in interaction style.',
+
+                }, {
+                    title: 'Probing questions',
+                    content: 'It is important to allow and encourage the fellow trainees to ask structured questions and clarify doubts. Redirection, refocusing, and increasing critical awareness are significant components of this skill.',
+
+                },
+                {
+                    title: 'Classroom management',
+                    content: 'Providing proper instructions, restricting inappropriate behavior, and calling the learners by name are essentials of this skill.'
+                }, {
+                    title: 'Using audiovisual aids',
+                    content: `The increased awareness of the audiovisual aids is important for this skill. Adequate spacing, distinct size, proper spacing between words and lines, and use of relevant words or phrases are the key components for this skill.
+Table 1 lists the various key skills and their individual components involved with microteaching.[29]`,
+
+                },
+                {
+                    content: 'The videodisc instructional package may have significant impact on trainee teachers’ performance in the demonstration of microteaching skills in the class. The 22 videotapes of microteaching recorded in a study signified the importance of how to frame the task and negotiate the roles of teacher, student, classmate, and peer/friend.[30,31] The skills required to think critically and effectively are the core part of a microteaching activity.[32] Along with that, constructive feedback from the colleagues also plays a critical role in improving the general teaching competence.[33]',
+                }
+
+            ];
+            const handleVideoClose = () => {
+                document.getElementById("ids").innerHTML = null;
+            }
+            const handleAddVideo = () => {
+
+                document.getElementById("ids").innerHTML = `<iframe src="https://drive.google.com/file/d/1NNQScmVbP0aBM5L-DDoqePe0UGGCpS77/preview" allowfullscreen
+                            width="100%" height="100%" allow="autoplay"></iframe>`;
+            }
+
+            const getTitle = (title) => {
+                return `<h2 style="color:#995733; border-bottom: 1px solid #97B0C8;">${title}</h2>`
+            }
+            const getLink = (href) => {
+                const link = document.createElement('a');
+                link.innerText = 'GO TO:';
+                link.href = href;
+                link.target = '_blank';
+                link.classList.add('gotoLink');
+                return link;
+            }
+            const content = document.getElementById("content");
+            const renderAbstract = () => {
+                const div = document.createElement("div");
+                const title = getTitle('Abstract');
+                div.innerHTML = title;
+                const para = document.createElement("p");
+                para.innerText =
+                    `Microteaching, a teacher training technique currently practiced worldwide, provides teachers an opportunity to perk up their teaching skills by improving the various simple tasks called teaching skills. With proven success among the novice and seniors, microteaching helps to promote real-time teaching experiences. The core skills of microteaching such as presentation and reinforcement skills help the novice teachers to learn the art of teaching at ease and to the maximum extent. The impact of this technique has been widely seen in various forms of education such as health sciences, life sciences, and other areas. The emerging changes in medical curricula by the Medical Council of India and the role of medical teachers envisage the need for this special training of teachers and monitoring of their skills for their continued efficient performance at any age. The alleged limitations of microteaching can be minimized by implementing this at the departmental level in several sequences. The author made literature searches for research and reviewed articles in various educational databases, journals, and books. From the reference list of published articles, books were also reviewed. This paper presents an outline of the various phases of microteaching, core teaching skills, implementation aspects, and the impact of micro teaching on medical education.`;
+                div.appendChild(para);
+                const keywords = document.createElement('span');
+                const key =
+                    `<p style="margin-top:16px"><span style="color:#603620";font-size:18px;font-weight:600;>Keywords:</span> Microteaching, medical education, teacher training, teaching skills, teach-re teach</p>`
+                div.innerHTML += key;
+                const link = getLink('https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3724377/')
+                div.appendChild(link);
+                content.appendChild(div);
+            }
+            const renderIntro = () => {
+                const div = document.createElement("div");
+                const title = getTitle('Introduction');
+                div.innerHTML = title;
+                const para = document.createElement("p");
+                para.innerHTML =
+                    `The art of teaching does not merely involve a simple transfer of knowledge from one to another. Instead, it is a complex process that facilitates and influences the process of learning. Quality of a teacher is estimated based on how much the students understand from his/her teaching. The classrooms cannot be used as a learning platform for acquiring primary teaching skills. Training of medical teachers in specific teaching skills is a major challenge in medical education programs. The pedagogic skill for teaching can be acquired only through more structured and cheaper faculty training techniques.[<a  href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3724377/#ref1' target="_blank">1</a>] With the introduction of micro teaching about five decades ago, the lacunae of scientifically proven or effective methods to be followed in teacher training programs has been overcome.[<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3724377/#ref2" target="_blank">2</a>]
+                                        The aim of this article is to emphasize the need for using micro teaching techniques more frequently and efficiently with minimum available facilities. A systematic literature search of research articles and reviews was undertaken from various educational databases. From the reference lists of published articles, books available were also reviewed.`;
+                div.appendChild(para);
+                const link = getLink('https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3724377/')
+                div.appendChild(link);
+                content.appendChild(div);
+            }
+            const renderMicroTeaching = () => {
+                const div = document.createElement("div");
+                div.style.display = "flex";
+                div.style.width = "100%";
+                div.style.flexDirection = "column";
+                const title = getTitle('MICROTEACHING');
+                div.innerHTML = title;
+                const subData = renderSubData(microTeachingData[0]);
+                div.appendChild(subData);
+                const subData2 = renderSubData(microTeachingData[1]);
+                div.appendChild(subData2);
+                const subData3 = renderSubData(microTeachingData[2]);
+                div.appendChild(subData3);
+                const divImg = document.createElement("div");
+                divImg.style.display = "flex";
+                divImg.style.width = "100%";
+                divImg.style.alignItems = "center";
+                divImg.style.flexDirection = "column";
+                const img = document.createElement('img');
+                img.src = 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3724377/bin/JRMS-18-158-g001.jpg';
+                img.style.width = '100%';
+                img.style.maxWidth = '600px';
+                const img2 = document.createElement('img');
+                img2.src = 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3724377/bin/JRMS-18-158-g002.jpg';
+                img2.style.width = '100%';
+                img2.style.maxWidth = '600px';
+                divImg.appendChild(img);
+                divImg.appendChild(img2);
+                div.appendChild(divImg);
+                microTeachingData.slice(3, 14).forEach((item) => {
+                    const subData = renderSubData(item);
+                    div.appendChild(subData);
+                })
+
+
+                content.appendChild(div);
+            }
+
+            const renderImpactOfMicro = () => {
+                const div = document.createElement("div");
+                const title = getTitle('IMPACT OF MICROTEACHING');
+                div.innerHTML = title;
+                const subData = renderSubData(mainData[0].subData[0]);
+                div.appendChild(subData);
+                content.appendChild(div);
+            }
+
+            const renderConclusion = () => {
+                const div = document.createElement("div");
+                const title = getTitle(mainData[1].title);
+                div.innerHTML = title;
+                const para = document.createElement("p");
+                para.innerHTML = mainData[1].content;
+                div.appendChild(para);
+                const link = getLink(mainData[1].link)
+                div.appendChild(link);
+                content.appendChild(div);
+            }
+            const convertLinks = (text) => {
+                const pattern = /\[(\d+(,\d+)*)\]/g;
+
+                const result = text.replace(pattern, (match, p1) => {
+                    const numbers = p1.split(',');
+                    const links = numbers.map(num =>
+                        `<a target="_blank" href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3724377/#ref${num}'>${num}</a>`
+                    );
+                    return `[${links.join(',')}]`;
+                });
+
+                return result;
+            }
+
+            const renderSubData = (obj) => {
+                const div = document.createElement("div");
+                div.style.marginBottom = '40px';
+                if (obj.title) {
+                    const title = `<h2 class='subDataTitle'>${obj.title}</h2>`;
+                    div.innerHTML = title;
+                }
+                if (obj.content) {
+                    const para = document.createElement("p");
+                    para.innerHTML = convertLinks(obj.content);
+                    div.appendChild(para);
+                }
+                if (obj.link) {
+                    const link = getLink(obj.link);
+                    div.appendChild(link);
+                }
+                content.appendChild(div);
+                return div;
+            }
+
+            (() => {
+                renderAbstract();
+                renderIntro();
+                renderMicroTeaching();
+                renderImpactOfMicro();
+                renderConclusion();
+            })();
+        </script>
+    </div>
 </body>
 
 </html>
